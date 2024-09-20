@@ -9,9 +9,10 @@ const badgeVariants = cva(
     variants: {
       variant: {
         outlined: 'text-gray-600',
-        outlinedError: 'border-red-500 text-red-600',
+        outlinedCritical: 'border-red-600 text-red-800',
+        outlinedError: 'border-red-400 text-red-500',
         outlinedSuccess: 'border-green-500 text-green-600',
-        outlinedWarning: 'border-orange-400 text-orange-500',
+        outlinedWarning: 'border-orange-300 text-orange-400',
         contained: 'bg-gray-100 text-gray-800',
         containedSuccess: 'border-green-500 bg-green-200 text-green-700',
         containedError: 'border-red-500 bg-red-200 text-red-700',
