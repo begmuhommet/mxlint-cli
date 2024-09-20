@@ -7,7 +7,7 @@ const PoliciesTableHead: FC<IProps> = () => {
   return (
     <TableHeader className="bg-gray-100 text-black border-y-[1px] border-gray-400">
       <TableRow>
-        <TableHead className="pl-6 text-gray-600 font-bold">Document</TableHead>
+        <TableHead className="pl-6 text-gray-600 font-bold">Title</TableHead>
         <TableHead className="text-gray-600 font-bold">Rule name</TableHead>
         <TableHead className="text-gray-600 font-bold">Pass</TableHead>
         <TableHead className="text-gray-600 font-bold">Fail</TableHead>

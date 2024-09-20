@@ -43,7 +43,7 @@ const PoliciesTableRow: FC<IProps> = (props) => {
       return (
         <div key={`${item.name}-${index}`} className="mb-1 flex flex-col py-1">
           <div className="flex items-center gap-1 mb-0.5">
-            <p className="text-sm text-gray-500 font-light  ">Document:</p>
+            <p className="text-sm text-gray-500 font-light">Document:</p>
             <p className="text-sm text-gray-800 font-bold">{item.name}</p>
           </div>
           {messageArr?.map((errorMsg: string, idx: number) => (
@@ -60,7 +60,7 @@ const PoliciesTableRow: FC<IProps> = (props) => {
     <TableRow>
       <TableCell className="pl-6 text-gray-800 w-[50%]">
         <Collapsible open={open} onOpenChange={handleToggle}>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 -ml-2">
             <CollapsibleTrigger className="p-1 rounded-sm hover:bg-gray-100 transition-colors">
               <ChevronRight className={cn('h-4 w-4 transition-transform', open && 'rotate-90')} />
             </CollapsibleTrigger>
