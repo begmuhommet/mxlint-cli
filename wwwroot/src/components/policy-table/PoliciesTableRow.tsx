@@ -64,11 +64,10 @@ const PoliciesTableRow: FC<IProps> = (props) => {
             <CollapsibleTrigger className="p-1 rounded-sm hover:bg-gray-100 transition-colors">
               <ChevronRight className={cn('h-4 w-4 transition-transform', open && 'rotate-90')} />
             </CollapsibleTrigger>
-            {/* <OverflowText text={policy.title} length={50} /> */}
             <Badge variant={badgeVariants[policy.severity.toLowerCase()]}>{policy.severity}</Badge>
           </div>
           <CollapsibleContent>
-            <div className="flex flex-col gap-2 pt-5 w-full max-w-1/2">
+            <div className="flex flex-col gap-2 pt-5  min-w-[400px]">
               <div className="flex gap-2 w-full">
                 <p className="text-sm text-gray-500 font-light">Title:</p>
                 <p className="text-sm text-gray-800 font-medium">{policy.title}</p>
@@ -98,8 +97,8 @@ const PoliciesTableRow: FC<IProps> = (props) => {
           </CollapsibleContent>
         </Collapsible>
       </TableCell>
-      <TableCell>
-        <OverflowText text={policy.pattern} length={30} />
+      <TableCell className='max-w-1/3'>
+        <OverflowText text={testSuite?.testcases[0]?.name} length={50} />
       </TableCell>
       <TableCell>
         <OverflowText text={policy.ruleName} length={30} />
