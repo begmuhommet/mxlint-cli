@@ -58,30 +58,31 @@ const PoliciesTableRow: FC<IProps> = (props) => {
 
   return (
     <TableRow>
-      <TableCell className="pl-6 text-gray-800 w-[50%]">
+      <TableCell className="pl-6 text-gray-800">
         <Collapsible open={open} onOpenChange={handleToggle}>
           <div className="flex items-center gap-1 -ml-2">
             <CollapsibleTrigger className="p-1 rounded-sm hover:bg-gray-100 transition-colors">
               <ChevronRight className={cn('h-4 w-4 transition-transform', open && 'rotate-90')} />
             </CollapsibleTrigger>
-            <OverflowText text={policy.title} length={50} />
+            {/* <OverflowText text={policy.title} length={50} /> */}
+            <Badge variant={badgeVariants[policy.severity.toLowerCase()]}>{policy.severity}</Badge>
           </div>
           <CollapsibleContent>
-            <div className="flex items-center gap-2 py-4">
-              <Badge variant="outlined">{policy.category}</Badge>
-              <Badge variant={badgeVariants[policy.severity.toLowerCase()]}>{policy.severity}</Badge>
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="flex gap-2">
+            <div className="flex flex-col gap-2 pt-5 w-full max-w-1/2">
+              <div className="flex gap-2 w-full">
+                <p className="text-sm text-gray-500 font-light">Title:</p>
+                <p className="text-sm text-gray-800 font-medium">{policy.title}</p>
+              </div>
+              <div className="flex gap-2 w-full">
                 <p className="text-sm text-gray-500 font-light">Description:</p>
                 <p className="text-sm text-gray-800 font-medium">{policy.description}</p>
               </div>
-              <div className="flex gap-2">
+              <div className="flex gap-2 w-full">
                 <p className="text-sm text-gray-500 font-light">Remediation:</p>
                 <p className="text-sm text-gray-800 font-medium">{policy.remediation}</p>
               </div>
               {testSuite.skipped > 0 && (
-                <div className="flex gap-2">
+                <div className="flex gap-2 w-full">
                   <p className="text-sm text-gray-500 font-light">Skip reason:</p>
                   <p className="text-sm text-gray-800 font-medium">{policy.skipReason}</p>
                 </div>
@@ -97,18 +98,19 @@ const PoliciesTableRow: FC<IProps> = (props) => {
           </CollapsibleContent>
         </Collapsible>
       </TableCell>
-      <TableCell className="w-[20%]">
+      <TableCell>
+        <OverflowText text={policy.pattern} length={30} />
+      </TableCell>
+      <TableCell>
         <OverflowText text={policy.ruleName} length={30} />
       </TableCell>
-      <TableCell className="w-[5%]">{passed > 0 && <Badge variant="containedSuccess">{passed}</Badge>}</TableCell>
-      <TableCell className="w-[5%]">
-        {testSuite?.failures > 0 && <Badge variant="containedError">{testSuite?.failures}</Badge>}
+      <TableCell>
+      <Badge variant="outlined">{policy.category}</Badge>
       </TableCell>
-      <TableCell className="w-[5%]">
-        {testSuite?.skipped > 0 && <Badge variant="contained">{testSuite?.skipped}</Badge>}
-      </TableCell>
-      <TableCell className="text-right pr-6 w-[5%]">
-        {policy?.testSuite.time > 0 ? (testSuite.time * 1000).toFixed(1) : 0}ms
+      <TableCell>
+        {passed > 0 && <Badge variant="containedSuccess">{passed} Pass</Badge>}
+        {testSuite?.failures > 0 && <Badge variant="containedError">{testSuite?.failures} Fail</Badge>}
+        {testSuite?.skipped > 0 && <Badge variant="contained">{testSuite?.skipped} Skip</Badge>}
       </TableCell>
     </TableRow>
   );

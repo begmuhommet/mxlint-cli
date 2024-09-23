@@ -7,12 +7,12 @@ const PoliciesTableHead: FC<IProps> = () => {
   return (
     <TableHeader className="bg-gray-100 text-black border-y-[1px] border-gray-400">
       <TableRow>
-        <TableHead className="pl-6 text-gray-600 font-bold">Title</TableHead>
+        <TableHead className="pl-6 text-gray-600 font-bold">Severity</TableHead>
+        <TableHead className="text-gray-600 font-bold">Document</TableHead>
         <TableHead className="text-gray-600 font-bold">Rule name</TableHead>
-        <TableHead className="text-gray-600 font-bold">Pass</TableHead>
-        <TableHead className="text-gray-600 font-bold">Fail</TableHead>
-        <TableHead className="text-gray-600 font-bold">Skip</TableHead>
-        <TableHead className="text-right pr-6 text-gray-600 font-bold">Time</TableHead>
+        <TableHead className="text-gray-600 font-bold">Category</TableHead>
+        <TableHead className="text-gray-600 font-bold">Status</TableHead>
+        {/* <TableHead className="text-right pr-6 text-gray-600 font-bold">Time</TableHead> */}
       </TableRow>
     </TableHeader>
   );

@@ -13,9 +13,7 @@ const PoliciesTable: FC<IProps> = (props) => {
 
   // Renders
   const renderRows = () => {
-    return policies.map((policy, index) => {
-      return <PoliciesTableRow key={index} policy={policy} />;
-    });
+    return policies.map((policy, index) => <PoliciesTableRow key={index} policy={policy} />);
   };
 
   return (
